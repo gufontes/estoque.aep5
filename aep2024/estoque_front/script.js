@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     const productTableBody = document.getElementById('product-table-body');
     const addProductForm = document.getElementById('addProductForm');
-
     const products = [];
+    let productTypes = ['Eletrônicos', 'Alimentos', 'Roupas'];
 
     function renderProducts() {
         productTableBody.innerHTML = '';
@@ -21,6 +21,18 @@ document.addEventListener('DOMContentLoaded', function() {
             `;
 
             productTableBody.appendChild(row);
+        });
+    }
+
+    function updateProductTypeOptions() {
+        const productTypeSelect = document.getElementById('productType');
+        productTypeSelect.innerHTML = '<option value="">Selecione o Tipo de Produto</option>';
+
+        productTypes.forEach(type => {
+            const option = document.createElement('option');
+            option.value = type;
+            option.textContent = type;
+            productTypeSelect.appendChild(option);
         });
     }
 
@@ -47,6 +59,17 @@ document.addEventListener('DOMContentLoaded', function() {
         addProductForm.reset();
     }
 
+    window.addProductType = function() {
+        const productTypeName = document.getElementById('productTypeName').value;
+
+        if (productTypeName) {
+            productTypes.push(productTypeName);
+            updateProductTypeOptions();
+            $('#addProductTypeModal').modal('hide');
+            document.getElementById('addProductTypeForm').reset();
+        }
+    }
+
     window.removeProduct = function(index) {
         products.splice(index, 1);
         renderProducts();
@@ -65,6 +88,9 @@ document.addEventListener('DOMContentLoaded', function() {
     window.showAllProducts = function() {
         renderProducts();
     }
+
+    // Inicialize com alguns tipos de produto predefinidos, se necessário
+    updateProductTypeOptions();
 
     // Inicializar a exibição
     showAllProducts();
