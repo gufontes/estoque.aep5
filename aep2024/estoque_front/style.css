@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu {
+    display: flex;
+    margin-bottom: 20px;
+    background-color: rgb(80, 80, 242); /* Alteração da cor do menu para azul */
+}
+
+.menu-btn {
+    background-color: rgb(80, 80, 242); /* Alteração da cor dos botões do menu para azul */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-btn:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+thead th {
+    background-color: rgb(80, 80, 242); /* Alteração da cor do cabeçalho da tabela para azul */
+    color: #fff;
+    padding: 10px;
+}
+
+tbody td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.action-btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.action-btn .fa {
+    font-size: 18px;
+    color: #333; /* Alteração da cor do ícone de ação para mais escura */
+    transition: color 0.3s;
+}
+
+.action-btn .fa:hover {
+    color: #007bff;
+}

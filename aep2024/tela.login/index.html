@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="formu">
+        <p id="titulo">Seja Bem-vindo(a)</p>
+    
+        <form id="loginForm">
+            <p class="campo" id="campouser">
+                <label for="user">Usuário</label>
+                <input type="text" id="user" placeholder="Digite seu usuário">
+            </p>
+            <p class="error" id="erroruser">Campo obrigatório</p>
+            <p class="campo" id="campopass">
+                <label for="pass">Senha</label>
+                <input type="password" id="pass" placeholder="Digite a sua senha">
+            </p>
+            <p class="error" id="errorpass">Campo obrigatório</p>
+            <button type="submit" id="enviar">Entrar</button>
+        </form>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Controle de Estoque</title>
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <button class="menu-btn" onclick="generateReport()">Gerar Relatório</button>
+            <button class="menu-btn" onclick="showAllProducts()">Todos Produtos</button>
+            <!-- Botão para abrir o modal -->
+            <button class="menu-btn" data-toggle="modal" data-target="#addProductModal">Adicionar Produto</button>
+        </div>
+        <h2>Produtos em Estoque</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Valor de Entrada</th>
+                    <th>Data de Validade</th>
+                    <th>Quantidade em Estoque</th>
+                    <th>Quantidade Mínima</th>
+                    <th>Tipo de Produto</th>
+                    <th>ALTERAR</th>
+                    <th>REMOVER</th>
+                </tr>
+            </thead>
+            <tbody id="product-table-body">
+                <!-- Conteúdo dinâmico -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addProductModalLabel">Cadastrar Produto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="addProductForm">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" class="form-control" id="name" placeholder="Nome do Produto" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="entryPrice">Valor de Entrada</label>
+                            <input type="number" class="form-control" id="entryPrice" placeholder="Valor de Entrada" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="expirationDate">Data de Validade</label>
+                            <input type="date" class="form-control" id="expirationDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="stock">Quantidade em Estoque</label>
+                            <input type="number" class="form-control" id="stock" placeholder="Quantidade em Estoque" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="minStock">Quantidade Mínima</label>
+                            <input type="number" class="form-control" id="minStock" placeholder="Quantidade Mínima" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="productType">Tipo de Produto</label>
+                            <select class="form-control" id="productType" required>
+                                <option value="">Selecione o Tipo de Produto</option>
+                                <!-- Preencher com os tipos de produtos -->
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary" onclick="addProduct()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
