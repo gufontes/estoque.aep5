@@ -1,35 +1,44 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
-.container {
-    width: 80%;
-    margin: 20px auto;
-    background: #fff;
+.header {
+    background-color: #5050f2;
+    color: white;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
 .menu {
     display: flex;
-    margin-bottom: 20px;
-    background-color: rgb(80, 80, 242); /* Alteração da cor do menu para azul */
+    justify-content: center;
+    margin: 20px 0;
 }
 
 .menu-btn {
-    background-color: rgb(80, 80, 242); /* Alteração da cor dos botões do menu para azul */
-    color: #fff;
+    background-color: #5050f2;
+    color: white;
     border: none;
     padding: 10px 20px;
+    margin: 0 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .menu-btn:hover {
-    background-color: #0056b3;
+    background-color: #003399;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h2 {
@@ -41,15 +50,41 @@ h2 {
     display: none;
 }
 
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    background-color: #5050f2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003399;
+}
+
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 thead th {
-    background-color: rgb(80, 80, 242); /* Alteração da cor do cabeçalho da tabela para azul */
-    color: #fff;
+    background-color: #5050f2;
+    color: white;
     padding: 10px;
 }
 
@@ -67,10 +102,17 @@ tbody td {
 
 .action-btn .fa {
     font-size: 18px;
-    color: #333; /* Alteração da cor do ícone de ação para mais escura */
-    transition: color 0.3s;
+    color: #333;
+    transition: color 0.3s ease;
 }
 
 .action-btn .fa:hover {
     color: #007bff;
+}
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #5050f2;
+    color: white;
 }
