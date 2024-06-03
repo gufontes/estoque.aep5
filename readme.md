@@ -1,41 +1,25 @@
+# Controle de Estoque para Nuselon
+
+## Descrição
+
+Este projeto tem como objetivo desenvolver um sistema de controle de estoque para a Nuselon, uma Entidade Filantrópica que atende crianças e adolescentes em situação de vulnerabilidade e risco pessoal e social. O sistema visa substituir o controle manual feito através de documentos e planilhas, proporcionando uma gestão mais eficiente e automatizada dos itens em estoque.
+
 ## Funcionalidades
 
-*Adicionar Produto:* Permite adicionar novos produtos ao estoque.
-*remover Produto:* Permite remover produtos existentes do estoque.
-*Editar Produto:*Função placeholder para edição de produtos.
-*Adicionar Tipo de Produto:*Permite adicionar novos tipos de produtos.
-*Gerar Relatório:* Função placeholder para gerar relatórios do estoque.
-*Mostrar Todos os Produtos:* Exibe todos os produtos cadastrados no estoque.
+- Cadastro de produtos
+- Registro de entrada e saída de produtos
+- Relatórios de estoque
+- Alerta de produtos em falta
+- Histórico de movimentações
 
 ## Tecnologias Utilizadas
 
-HTML
-CSS
-JavaScript
-Bootstrap 4.5.2
-Font Awesome 5.15.3
+- **Frontend**: HTML5, CSS3, JavaScript, jQuery
+- **Backend**: Spring Boot
+- **Banco de Dados**: MySQL
 
-## Estrutura do projeto
+## Instalação
 
-controle-de-estoque/
-│
-├── index.html
-├── style.css
-├── script.js
-└── README.md
-
-## how contribute
-
-``` bash
-#clone the project
-
-git clone https://github.com/seu-usuario/controle-de-estoque.git
-cd controle-de-estoque
-
- ```
-
- ## license 
- Este projeto está licenciado sob a MIT License.
-
-
-
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/usuario/nuselon-estoque.git
