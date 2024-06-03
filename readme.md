@@ -15,7 +15,7 @@ Este projeto tem como objetivo desenvolver um sistema de controle de estoque par
 ## Tecnologias Utilizadas
 
 - **Frontend**: HTML5, CSS3, JavaScript, jQuery
-- **Backend**: Spring Boot
+- **Backend**: Java, Spring Boot
 - **Banco de Dados**: MySQL
 
 ## Instalação
