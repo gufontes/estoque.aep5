@@ -1,14 +1,12 @@
 body {
     font-family: Arial, sans-serif;
-    background-image: url('caminho/para/sua/imagem.jpg'); /* Substitua pelo caminho da sua imagem */
-    background-size: cover;
-    background-position: center;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
 
 .formu {
-    background-color: rgba(255, 255, 255, 0.8); /* Adiciona uma opacidade branca para tornar o formulário mais legível */
+    background-color: #fff;
     max-width: 360px;
     margin: 100px auto;
     padding: 40px;
@@ -16,4 +14,67 @@ body {
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* O restante do seu CSS permanece o mesmo */
+#titulo {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.campo {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5050f2;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #003399;
+}
+
+.error {
+    display: none;
+    color: red;
+    margin-top: -10px;
+}
+
+#enviar {
+    margin-top: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('img/Captura\ de\ tela\ 2024-06-05\ 212919.png'); /* Substitua pelo caminho da sua imagem */
+    background-size: contain; /* Altera o tamanho da imagem para 'contain' */
+    background-position: center;
+    margin: 0;
+    padding: 0;
+}
+
+.formu {
+    background-color: rgba(255, 255, 255, 0.8);
+    max-width: 360px;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+}
