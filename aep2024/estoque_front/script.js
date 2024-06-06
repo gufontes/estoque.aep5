@@ -3,11 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
     const productForm = document.getElementById('product-form');
     const manageTypesSection = document.getElementById('manage-types');
     const manageStockSection = document.getElementById('manage-stock');
+    const productTypeTableBody = document.getElementById('product-type-table-body');
+    const movementProductSelect = document.getElementById('movementProduct');
 
     let products = [];
-    let productTypes = [];
+    let productTypes = [
+        { id: 'Limpeza', description: 'Limpeza' },
+        { id: 'Alimento', description: 'Alimento' },
+        { id: 'Bebida', description: 'Bebida' }
+    ];
     let movementTypes = [];
-    let destinations = [];
+    let destinations = [
+        { id: 'Casa 1', description: 'Casa 1' },
+        { id: 'Casa 2', description: 'Casa 2' },
+        { id: 'Casa 3', description: 'Casa 3' }
+    ];
     let movements = [];
 
     function renderProducts() {
@@ -19,8 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <td>${product.type}</td>
                 <td>${product.purchasePrice}</td>
                 <td>${product.expirationDate}</td>
-                <td>${product.stock}</td>
-                <td>${product.minStock}</td>
                 <td><button class="action-btn" onclick="editProduct(${index})"><i class="fa fa-edit"></i></button></td>
                 <td><button class="action-btn" onclick="removeProduct(${index})"><i class="fa fa-trash"></i></button></td>
             `;
@@ -31,6 +39,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function renderProductTypes() {
         const productTypeSelect = document.getElementById('productType');
         productTypeSelect.innerHTML = productTypes.map(type => `<option value="${type.id}">${type.description}</option>`).join('');
+
+        productTypeTableBody.innerHTML = '';
+        productTypes.forEach((type, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${type.id}</td>
+                <td>${type.description}</td>
+                <td><button class="action-btn" onclick="editProductType(${index})"><i class="fa fa-edit"></i></button></td>
+                <td><button class="action-btn" onclick="removeProductType(${index})"><i class="fa fa-trash"></i></button></td>
+            `;
+            productTypeTableBody.appendChild(row);
+        });
     }
 
     function renderMovementTypes() {
@@ -56,6 +76,10 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             movementTableBody.appendChild(row);
         });
+    }
+
+    function renderProductsSelect() {
+        movementProductSelect.innerHTML = products.map(product => `<option value="${product.name}">${product.name}</option>`).join('');
     }
 
     window.showAllProducts = () => {
@@ -89,20 +113,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const type = document.getElementById('productType').value;
         const purchasePrice = document.getElementById('purchasePrice').value;
         const expirationDate = document.getElementById('expirationDate').value;
-        const stock = document.getElementById('stock').value;
-        const minStock = document.getElementById('minStock').value;
 
         const newProduct = {
             name,
             type,
             purchasePrice,
-            expirationDate,
-            stock,
-            minStock
+            expirationDate
         };
 
         products.push(newProduct);
         renderProducts();
+        renderProductsSelect();
         productForm.classList.add('hidden');
     };
 
@@ -116,24 +137,19 @@ document.addEventListener('DOMContentLoaded', () => {
         renderProductTypes();
     };
 
-    window.addMovementType = (event) => {
-        event.preventDefault();
-        const id = document.getElementById('movementTypeId').value;
-        const description = document.getElementById('movementTypeDescription').value;
-
-        const newMovementType = { id, description };
-        movementTypes.push(newMovementType);
-        renderMovementTypes();
+    window.editProductType = (index) => {
+        const newDescription = prompt('Digite a nova descrição do tipo de produto:', productTypes[index].description);
+        if (newDescription) {
+            productTypes[index].description = newDescription;
+            renderProductTypes();
+        }
     };
 
-    window.addDestination = (event) => {
-        event.preventDefault();
-        const id = document.getElementById('destinationId').value;
-        const description = document.getElementById('destinationDescription').value;
-
-        const newDestination = { id, description };
-        destinations.push(newDestination);
-        renderDestinations();
+    window.removeProductType = (index) => {
+        if (confirm('Tem certeza que deseja remover este tipo de produto?')) {
+            productTypes.splice(index, 1);
+            renderProductTypes();
+        }
     };
 
     window.addStockMovement = (event) => {
@@ -142,8 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const quantity = document.getElementById('movementQuantity').value;
         const destination = document.getElementById('movementDestination').value;
         const budget = document.getElementById('movementBudget').value;
+        const product = movementProductSelect.value;
 
-        const newMovement = { type, quantity, destination, budget };
+        const newMovement = { type, quantity, destination, budget, product };
         movements.push(newMovement);
         renderMovements();
     };
@@ -151,6 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.removeProduct = (index) => {
         products.splice(index, 1);
         renderProducts();
+        renderProductsSelect();
     };
 
     window.editProduct = (index) => {
@@ -160,8 +178,10 @@ document.addEventListener('DOMContentLoaded', () => {
     window.generateReport = () => {
         alert('Funcionalidade de geração de relatório ainda não implementada.');
     };
+
     renderProductTypes();
     renderMovementTypes();
     renderDestinations();
+    renderProductsSelect();
     showAllProducts();
 });

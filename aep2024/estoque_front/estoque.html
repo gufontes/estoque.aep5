@@ -15,6 +15,7 @@
             <button class="menu-btn" onclick="showAllProducts()">Todos Produtos</button>
             <button class="menu-btn" onclick="showAddProductForm()">Adicionar Produto</button>
             <button class="menu-btn" onclick="showManageTypes()">Gerenciar Tipos</button>
+            <button class="menu-btn" onclick="showManageStock()">Movimentação de Estoque</button>
         </nav>
     </header>
     <main class="container">
@@ -23,13 +24,19 @@
             <div id="product-form" class="hidden">
                 <h3>Adicionar Produto</h3>
                 <form onsubmit="addProduct(event)">
+                    <label for="name">Nome do Produto</label>
                     <input type="text" id="name" placeholder="Nome do Produto" required>
+                    <label for="productType">Tipo do Produto</label>
                     <select id="productType" required>
+                        <option value="" disabled selected>Selecione o Tipo do Produto</option>
+                        <option value="Limpeza">Limpeza</option>
+                        <option value="Alimento">Alimento</option>
+                        <option value="Bebida">Bebida</option>
                     </select>
+                    <label for="purchasePrice">Valor de Entrada</label>
                     <input type="number" id="purchasePrice" placeholder="Valor de Entrada" required>
+                    <label for="expirationDate">Data de Validade</label>
                     <input type="date" id="expirationDate" required>
-                    <input type="number" id="stock" placeholder="Quantidade em Estoque" required>
-                    <input type="number" id="minStock" placeholder="Quantidade Mínima" required>
                     <button type="submit">Adicionar</button>
                 </form>
             </div>
@@ -40,8 +47,6 @@
                         <th>Tipo</th>
                         <th>Valor de Entrada</th>
                         <th>Data de Validade</th>
-                        <th>Quantidade em Estoque</th>
-                        <th>Quantidade Mínima</th>
                         <th>ALTERAR</th>
                         <th>REMOVER</th>
                     </tr>
@@ -51,7 +56,7 @@
             </table>
         </section>
         <section id="manage-types" class="hidden">
-            <h2>Gerenciar Tipos</h2>
+            <h2>Gerenciar Tipos de Produto</h2>
             <div id="product-type-form">
                 <h3>Adicionar Tipo de Produto</h3>
                 <form onsubmit="addProductType(event)">
@@ -60,31 +65,38 @@
                     <button type="submit">Adicionar</button>
                 </form>
             </div>
-            <div id="movement-type-form">
-                <h3>Adicionar Tipo de Movimentação</h3>
-                <form onsubmit="addMovementType(event)">
-                    <input type="text" id="movementTypeId" placeholder="ID do Tipo" required>
-                    <input type="text" id="movementTypeDescription" placeholder="Descrição do Tipo" required>
-                    <button type="submit">Adicionar</button>
-                </form>
-            </div>
-            <div id="destination-form">
-                <h3>Adicionar Destino</h3>
-                <form onsubmit="addDestination(event)">
-                    <input type="text" id="destinationId" placeholder="ID do Destino" required>
-                    <input type="text" id="destinationDescription" placeholder="Descrição do Destino" required>
-                    <button type="submit">Adicionar</button>
-                </form>
-            </div>
+            <h3>Tipos de Produtos Cadastrados</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Descrição</th>
+                        <th>ALTERAR</th>
+                        <th>REMOVER</th>
+                    </tr>
+                </thead>
+                <tbody id="product-type-table-body">
+                </tbody>
+            </table>
         </section>
         <section id="manage-stock" class="hidden">
             <h2>Movimentação de Estoque</h2>
             <form onsubmit="addStockMovement(event)">
-                <select id="movementType" required>
+                <label for="movementProduct">Produto</label>
+                <select id="movementProduct" required>
+                    <option value="" disabled selected>Selecione o Produto</option>
+                    <!-- Opções de produtos serão preenchidas dinamicamente pelo JavaScript -->
                 </select>
+                <label for="movementQuantity">Quantidade</label>
                 <input type="number" id="movementQuantity" placeholder="Quantidade" required>
+                <label for="movementDestination">Destino</label>
                 <select id="movementDestination" required>
+                    <option value="" disabled selected>Selecione o Destino</option>
+                    <option value="Casa 1">Casa 1</option>
+                    <option value="Casa 2">Casa 2</option>
+                    <option value="Casa 3">Casa 3</option>
                 </select>
+                <label for="movementBudget">Orçamento</label>
                 <input type="text" id="movementBudget" placeholder="Orçamento" required>
                 <button type="submit">Adicionar Movimentação</button>
             </form>
@@ -103,7 +115,7 @@
         </section>
     </main>
     <footer class="footer">
-        <p>&copy; 2024 Controle de Estoque. Todos os direitos reservados.</p>
+        <p>&copy; 2024 Controle de Estoque. NUSELON</p>
     </footer>
     <script src="script.js"></script>
 </body>
