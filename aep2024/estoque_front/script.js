@@ -185,3 +185,17 @@ document.addEventListener('DOMContentLoaded', () => {
     renderProductsSelect();
     showAllProducts();
 });
+const express = require('express');
+const path = require('path');
+const app = express();
+
+// Configurar a pasta de arquivos estáticos
+app.use(express.static(path.join(__dirname, 'estoque_front')));
+
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+app.listen(3000, () => {
+    console.log('Servidor rodando na porta 3000');
+});

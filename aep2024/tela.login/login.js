@@ -10,7 +10,7 @@ function login(event) {
 
     if (isValidUser) {
         // Login bem-sucedido, redirecionar para a tela do estoque
-        window.location.href = 'estoque_front/estoque.html';
+        window.location.href = '../estoque_front/estoque.html'; // ajuste conforme a estrutura do seu projeto
 
     } else {
         // Exibir mensagem de erro (opcional)
@@ -20,4 +20,3 @@ function login(event) {
 
 // Adicionar um ouvinte de evento para o envio do formulário
 document.getElementById('loginForm').addEventListener('submit', login);
-
